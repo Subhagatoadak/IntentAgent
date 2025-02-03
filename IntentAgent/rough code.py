@@ -1,4 +1,4 @@
-from mongodb import MongoDBManager
+from IntentAgent.MongoDBManager import MongoDBManager
 from IntentLibrary import IntentLibrary
 
 if __name__ == "__main__":
