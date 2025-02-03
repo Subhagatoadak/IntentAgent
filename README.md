@@ -6,7 +6,7 @@ This repository outlines the architecture and implementation of a query-handling
 
 ## **System Architecture Overview**
 
-![System Architecture](https://github.com/user-attachments/assets/953e2353-0f00-4e48-85be-f5ea14fec94b)
+![System Architecture](https://github.com/user-attachments/assets/14f1dde2-4d08-4db8-9f5b-dd2689abab78)
 
 This diagram illustrates the architecture of a query-handling system:
 
