@@ -1,15 +1,14 @@
-from IntentAgent.MongoDBManager import MongoDBManager
+from MongoDBManager import MongoDBManager
 from IntentLibrary import IntentLibrary
 
+# Example usage
 if __name__ == "__main__":
     db_manager = MongoDBManager()
     intent_lib = IntentLibrary(db_manager)
-    intent_lib.add_intent("ecommerce", "buy_product", ["I want to buy a phone", "Purchase a laptop"])
-    intent_lib.add_intent("banking", "check_balance", ["What is my account balance?", "Show my balance"])
-    print(intent_lib.to_json())
+    intent_lib.add_intent("FMCG", ["buy_product", "electronics","Chcolate"], ["I want to buy a phone", "Purchase a laptop"])
     
     print("Retrieving intents by domain:")
     print(intent_lib.get_intents(domain="ecommerce"))
     
-    print("Retrieving specific intent:")
-    print(intent_lib.get_intents(domain="ecommerce", intent="buy_product"))
+    print("Retrieving specific top-level intent:")
+    print(intent_lib.get_intents(domain="FMCG", intent="buy_product"))
