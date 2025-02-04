@@ -40,3 +40,9 @@ class MongoDBManager:
         """Find all matching documents in a collection."""
         collection = self.db[collection_name]
         return list(collection.find(query))
+    
+    def clear_db(self):
+        """Clear all collections in the database."""
+        for collection_name in self.db.list_collection_names():
+            self.db[collection_name].drop()
+        print(f"All collections in database '{self.db_name}' have been cleared.")
