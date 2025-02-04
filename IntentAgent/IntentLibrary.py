@@ -1,5 +1,5 @@
 import json
-from IntentAgent.MongoDBManager import MongoDBManager
+from MongoDBManager import MongoDBManager
 import pandas as pd
 
 class IntentLibrary:
