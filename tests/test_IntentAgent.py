@@ -18,7 +18,7 @@ def llm_manager():
 
 @pytest.fixture
 def intent_agent(intent_library, llm_manager):
-    return IntentAgent(intent_library=intent_library, llm_manager=llm_manager)
+    return IntentAgent(intent_library=intent_library, llm_manager=llm_manager,domain="test_domain")
 
 def test_mongodb_insert_find(db_manager):
     sample_data = {"domain": "test_domain", "intents": {"test_intent": ["query1", "query2"]}}
