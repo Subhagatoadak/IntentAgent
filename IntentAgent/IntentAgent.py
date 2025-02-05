@@ -15,7 +15,7 @@ class IntentAgent:
         intents = self.intent_library.get_intents(self.domain)
         return intents
     
-    def generate_prompt(self):
+    def generate_prompt(self,query):
         """Generate a more explicit prompt for multi-level intent classification."""
         intents = self.filter_intents()
         if not intents:
@@ -38,6 +38,7 @@ class IntentAgent:
         prompt = (
             f"You are an expert AI assistant for the domain: '{self.domain}'.\n"
             f"Your task is to classify user queries into one of the predefined intents.\n"
+            f"The query is \n {query} \n "
             f"The intents in this domain can be multi-level, with hierarchical relationships.\n"
             f"Here are the intents and their corresponding example queries:\n{formatted_intents}\n"
             f"The output response from the LLM must be in JSON format with the following structure:\n"
