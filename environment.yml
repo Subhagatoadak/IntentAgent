@@ -12,3 +12,5 @@ dependencies:
     - google-generativeai
     - transformers
     - pytest
+    - pydantic
+    - pandas
