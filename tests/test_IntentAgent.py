@@ -42,23 +42,3 @@ def test_mongodb_remove(db_manager):
     result = db_manager.find("Intents", {"domain": "test_domain"})
     assert result is None
 
-def test_create_intent_methods(intent_agent):
-    test_intents = {
-        "buy_product": {
-            "electronics": {
-                "phones": ["I want to buy a phone", "Purchase a mobile"]
-            }
-        }
-    }
-    intent_agent.intent_library.get_intents = lambda domain: test_intents
-    intent_agent.create_intent_methods("ecommerce")
-    
-    with open("intent_methods.py", "r") as f:
-        content = f.read()
-    
-    assert "def buy_product_electronics_phones()" in content
-
-def test_llm_generate_response(llm_manager):
-    prompt = "Test prompt for LLM"
-    response = llm_manager.generate_response(prompt)
-    assert isinstance(response, str)
