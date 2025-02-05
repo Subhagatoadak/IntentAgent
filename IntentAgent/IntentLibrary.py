@@ -54,6 +54,31 @@ class IntentLibrary:
         if intent:
             return intents.get(intent, "Intent not found")
         return intents
+
+    def remove_intent(self, domain: str, intent: str):
+        """Check if the domain and intent exist before removing."""
+        existing_domain = self.db_manager.find(self.collection_name, {"domain": domain})
+        if not existing_domain:
+            print("No such domain exists.")
+            return
+        
+        if intent not in existing_domain.get("intents", {}):
+            print("No such intent exists.")
+            return
+        
+        del existing_domain["intents"][intent]
+        self.db_manager.append(self.collection_name, {"domain": domain}, {"intents": existing_domain["intents"]})
+        print(f"Intent '{intent}' removed from domain '{domain}'.")
+
+    def remove_domain(self, domain: str):
+        """Check if the domain exists before removing it."""
+        existing_domain = self.db_manager.find(self.collection_name, {"domain": domain})
+        if not existing_domain:
+            print("No such domain exists.")
+            return
+        
+        self.db_manager.remove(self.collection_name, {"domain": domain})
+        print(f"Domain '{domain}' removed successfully.")
     
     def load_from_file(self, file_path: str):
         """Load data from an Excel, CSV, or SQL file into MongoDB with validations."""
