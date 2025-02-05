@@ -6,7 +6,10 @@ from IntentAgent import IntentAgent
 if __name__ == "__main__":
     db_manager = MongoDBManager()
     intent_lib = IntentLibrary(db_manager)
-    intent_lib.add_intent("FMCG", ["buy_product", "electronics","Chcolate"], ["I want to buy a phone", "Purchase a laptop"])
+    intent_lib.add_intent("demo", ["buy_product", "electronics","Chcolate"], ["I want to buy a phone", "Purchase a laptop"])
+    
+    intent_lib.remove_domain("demo")
+    intent_lib.remove_intent("ecommerce", "buy_product")
     
     print("Retrieving intents by domain:")
     print(intent_lib.get_intents(domain="ecommerce"))

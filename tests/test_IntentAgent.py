@@ -35,4 +35,10 @@ def test_mongodb_append(db_manager):
     result = db_manager.find("Intents", {"domain": "test_domain"})
     assert "query2" in result["intents"]["test_intent"]
 
+def test_mongodb_remove(db_manager):
+    sample_data = {"domain": "test_domain", "intents": {"test_intent": ["query1"]}}
+    db_manager.insert("Intents", sample_data)
+    db_manager.remove("Intents", {"domain": "test_domain"})
+    result = db_manager.find("Intents", {"domain": "test_domain"})
+    assert result is None
 
