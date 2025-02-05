@@ -1,8 +1,8 @@
 import pytest
-from IntentAgent.MongoDBManager import MongoDBManager
-from IntentAgent.IntentLibrary import IntentLibrary
-from IntentAgent.IntentAgent import IntentAgent
-from IntentAgent.LLMManager import LLMManager
+from MongoDBManager import MongoDBManager
+from IntentLibrary import IntentLibrary
+from IntentAgent import IntentAgent
+from LLMManager import LLMManager
 
 @pytest.fixture
 def db_manager():
