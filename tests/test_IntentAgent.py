@@ -8,6 +8,13 @@ from LLMManager import LLMManager
 def db_manager():
     return MongoDBManager(db_name="TestIntentDB")
 
+@pytest.fixture(autouse=True)
+def clear_database(db_manager):
+    db_manager.clear_db()
+    yield
+    db_manager.clear_db()
+
+
 @pytest.fixture
 def intent_library(db_manager):
     return IntentLibrary(db_manager)

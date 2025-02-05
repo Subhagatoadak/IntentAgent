@@ -6,6 +6,3 @@ def buy_product_new():
 def buy_product_ww():
     print("Executing buy_product_ww method.")
 
-def buy_product_electronics():
-    print("Executing buy_product_electronics method.")
-

@@ -28,7 +28,7 @@ class MongoDBManager:
     def remove(self, collection_name: str, query: dict):
         """Remove a document from a collection."""
         collection = self.db[collection_name]
-        collection.delete_one(query)
+        result = collection.delete_many(query)
         print("Document removed successfully.")
 
     def find(self, collection_name: str, query: dict):
