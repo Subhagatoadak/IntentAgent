@@ -1,5 +1,6 @@
 from MongoDBManager import MongoDBManager
 from IntentLibrary import IntentLibrary
+from IntentAgent import IntentAgent
 
 # Example usage
 if __name__ == "__main__":
@@ -12,3 +13,9 @@ if __name__ == "__main__":
     
     print("Retrieving specific top-level intent:")
     print(intent_lib.get_intents(domain="FMCG", intent="buy_product"))
+    
+    
+    print(intent_lib.get_intents(domain="ecommerce"))
+    agent = IntentAgent(intent_lib,None,'ecommerce')  # Intent library should be passed in real use cases
+    print(agent.generate_prompt())
+    agent.create_intent_methods("intent_methods.py")
