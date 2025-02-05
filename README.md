@@ -1,10 +1,11 @@
 
-https://github.com/user-attachments/assets/14f1dde2-4d08-4db8-9f5b-dd2689abab78
+
 
 # IntentAgent Library
 
 This repository showcases a **modular library** for multi-level intent classification using MongoDB for storage and various LLM providers (OpenAI, Anthropic Claude, Google Gemini, Hugging Face) for classification. The system supports hierarchical intents (`domain -> intent -> subintent -> ...`) and generates dynamic Python methods for each intent.  
 
+![Architecture](https://github.com/user-attachments/assets/14f1dde2-4d08-4db8-9f5b-dd2689abab78)
 ---
 
 ## Table of Contents
@@ -246,6 +247,7 @@ pytest
 
 ```
 If you’re using GitHub Actions, see the included CI workflow sample to run tests automatically (including integration with MongoDB as a service container).
+Note: Need to add more tests
 
 ## Environment and Dependencies
 
