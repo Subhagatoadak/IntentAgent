@@ -1,0 +1,14 @@
+name: intent-classification
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - pymongo
+    - openai
+    - anthropic
+    - google-generativeai
+    - transformers
+    - pytest
