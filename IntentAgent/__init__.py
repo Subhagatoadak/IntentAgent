@@ -1,3 +1,3 @@
-from MongoDBManager import MongoDBManager
-from IntentLibrary import IntentLibrary
-from IntentAgent import IntentAgent
+from .MongoDBManager import MongoDBManager
+from .IntentLibrary import IntentLibrary
+from .IntentAgent import IntentAgent
